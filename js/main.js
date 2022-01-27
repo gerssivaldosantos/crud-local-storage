@@ -16,10 +16,10 @@ function getTotal(list) {
 function setList(list) {
 
     var table = '<thead><tr>'+
-    '<td>Description</td>'+
-    '<td>Amount</td>'+
-    '<td>Value</td>'+
-    '<td>Action</td></tr></thead > ';
+    '<td><Strong>Description<Strong/></td>'+
+    '<td><Strong>Amount<Strong/></td>'+
+    '<td><Strong>Value<Strong/></td>'+
+    '<td><Strong>Action<Strong/></td></tr></thead > ';
 
     for (var key in list){
         table += '<tbody><tr><td>'
@@ -48,6 +48,21 @@ function formatValue(value){
     str = str.replace('.',',');
     str = "R$ "+str;
     return str;
+}
+
+function addData(){
+    var desc = document.getElementById('desc').value;
+    var amount = document.getElementById('amount').value;
+    var value = document.getElementById('value').value;
+    /* append to the list */
+    list.unshift({ "description": desc, "amount": amount, "value": value });
+    /* Refresh te table */
+    setList(list);
+    /* Reseting the inputs */
+    document.getElementById('desc').value = "";
+    document.getElementById('amount').value = "";
+    document.getElementById('value').value = "";
+
 }
 
 setList(list);
