@@ -20,23 +20,25 @@
     </div>
   </nav>
   <div class="container-fluid">
+    <div class="form-inline">
+      <div class="form-group">
+        <label for="desc">Description</label>
+        <input type="text" class="form-control" id="desc" placeholder="Whats is the item that you will add ?">
+        <br/>
+        <label for="amount">Amount</label>
+        <input type="number" class="form-control" id="amount" placeholder="How many items to add?">
+        <br/>
+        <label for="amount">Value    </label>
+        <input type="number" class="form-control" id="value" placeholder="whats is the product cost">
+        <br/>
+        <button class="btn btn-primary">New Item</button>
+      </div>
+    </div>
     <table id="listTable" class="table">
-      <thead>
-        <tr>
-          <td>Description</td>
-          <td>Amount</td>
-          <td>Value</td>
-          <td>Action</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-        <td>Rice</td>
-        <td>2</td>
-        <td>$ 5.90</td>
-        <td>Edit | Delete</td>
-      </tr>
-      </tbody>
+      <br>
+      <h3>Resume of system items</h1>
+      <!-- JS control this -->
+      <!-- Table Generated -->
     </table>
   </div>
   <script src="js/config.js"></script>
