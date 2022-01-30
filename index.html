@@ -23,20 +23,31 @@
     <div class="form-inline">
       <div class="form-group">
         <input type="text" class="form-control" id="desc" placeholder="Description">
-        <br />
-        <input type="number" class="form-control" id="amount" placeholder="Amount">
-        <br />
-        <input type="number" class="form-control" id="value" placeholder="Value">
-        <br />
-        <button onclick="addData();" class="btn btn-primary">New Item</button>
       </div>
+      <div class="form-group">
+        <input type="number" class="form-control" id="amount" placeholder="Amount">
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" id="value" placeholder="Value">
+      </div>
+      <span id="btnUpdate" style="display: none;">
+        <span id="inputIdUpdate">
+
+        
+
+        </span>
+        <button class="btn btn-primary" onclick="updateData();">Save</button>
+        <button class="btn btn-danger" onclick="resetForm();">Cancel</button>
+      </span>
+      <button id="btnAdd" onclick="addData();" class="btn btn-primary">New Item</button>
     </div>
-    <table id="listTable" class="table">
-      <br>
-      <h3>Resume of system items</h1>
-        <!-- JS control this -->
-        <!-- Table Generated -->
-    </table>
+  </div>
+  <table id="listTable" class="table">
+    <br>
+    <h3>Resume of system items</h1>
+      <!-- JS control this -->
+      <!-- Table Generated -->
+  </table>
   </div>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
