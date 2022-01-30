@@ -39,13 +39,27 @@
         <button class="btn btn-primary" onclick="updateData();">Save</button>
         <button class="btn btn-warning" onclick="resetForm();">Cancel</button>
       </span>
-      <button id="btnAdd" onclick="addData();" class="btn btn-primary">New Item</button>
+      <span id="btnAdd">
+        <button onclick="addData();" class="btn btn-primary">New Item</button>
+        <button onclick="resetForm()" class="btn btn-warning">Reset</button>
+        <button onclick="deleteAll()" class="btn btn-danger">Delete All</button>
+      </span>
+     
     </div>
   </div>
   <table id="listTable" class="table">
       <!-- JS control this -->
       <!-- Table Generated -->
   </table>
+  </div>
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+      <h4 class="text-center text-success">
+        <span id="totalValue"></span>
+      </h4>
+      
+    </div>
+   
   </div>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>

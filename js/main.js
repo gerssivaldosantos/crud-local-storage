@@ -10,7 +10,7 @@ function getTotal(list) {
     for (var i in list) {
         total += list[i].value * list[i].amount;
     }
-    return total;
+    document.getElementById('totalValue').innerHTML = "R$ " + total.toFixed(2);
 }
 
 function setList(list) {
@@ -26,12 +26,12 @@ function setList(list) {
             + formatDesc(list[key].description) +
             '</td><td>'
             + list[key].amount +
-            '</td><td>'
+            '</td><td class="text-success" >'
             + formatValue(list[key].value) +
             '</td><td> '
-            +'<button class="btn btn-primary" onClick="setUpdate(' + key + ')" > Edit </button>'
-            +' '
-            +'<button class="btn btn-danger" onClick="deleteData(' + key + ')" > Delete </button>'
+            + '<button class="btn btn-primary" onClick="setUpdate(' + key + ')" > Edit </button>'
+            + ' '
+            + '<button class="btn btn-danger" onClick="deleteData(' + key + ')" > Remove</button>'
 
     }
     table += '</tbody>'
@@ -67,11 +67,13 @@ function addData() {
         list.unshift({ "description": desc, "amount": amount, "value": value });
         /* Refresh te table */
         setList(list);
+        getTotal(list);
         /* Reseting the inputs */
         document.getElementById('desc').value = "";
         document.getElementById('amount').value = "";
         document.getElementById('value').value = "";
     }
+
 
 
 }
@@ -101,18 +103,25 @@ function updateData() {
     var desc = document.getElementById('desc').value;
     var amount = document.getElementById('amount').value;
     var value = document.getElementById('value').value;
-    list[id] = {"description":desc, "amount": amount, "value":value};
-
+    list[id] = { "description": desc, "amount": amount, "value": value };
     resetForm();
     setList(list);
+    getTotal(list);
 }
 
-function deleteData(id){
-    if(confirm ("Are you sure?")){
+function deleteData(id) {
+    if (confirm("Are you sure?")) {
         list.splice(id, 1);
         setList(list);
+        getTotal(list);
     }
 }
 
+function deleteAll() {
+    list = [];
+    getTotal(list);
+    setList(list);
+}
 
+getTotal(list);
 setList(list);
