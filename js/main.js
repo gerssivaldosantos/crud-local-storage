@@ -28,7 +28,10 @@ function setList(list) {
             + list[key].amount +
             '</td><td>'
             + formatValue(list[key].value) +
-            '</td><td> <button class="btn btn-default" onClick="setUpdate(' + key + ')" > Edit </button> Delete</td></tr>'
+            '</td><td> '
+            +'<button class="btn btn-primary" onClick="setUpdate(' + key + ')" > Edit </button>'
+            +' '
+            +'<button class="btn btn-danger" onClick="deleteData(' + key + ')" > Delete </button>'
 
     }
     table += '</tbody>'
@@ -102,6 +105,13 @@ function updateData() {
 
     resetForm();
     setList(list);
+}
+
+function deleteData(id){
+    if(confirm ("Are you sure?")){
+        list.splice(id, 1);
+        setList(list);
+    }
 }
 
 
