@@ -1,5 +1,4 @@
 var list = [
-
 ]
 
 function getTotal(list) {
@@ -33,6 +32,8 @@ function setList(list) {
     }
     table += '</tbody>'
     document.getElementById('listTable').innerHTML = table;
+    document.getElementById('listTable').style.marginLeft = "10px";
+    
 }
 
 function formatDesc(desc) {
@@ -122,6 +123,7 @@ function deleteAll() {
         list = [];
         setList(list);
         getTotal(list);
+        saveListStorage(list);
     }
 
 }
