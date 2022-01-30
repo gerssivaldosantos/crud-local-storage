@@ -118,10 +118,14 @@ function deleteData(id) {
 }
 
 function deleteAll() {
-    list = [];
-    getTotal(list);
-    setList(list);
+    if (confirm("ALL DATA WILL BE DELETED \n\nAre you sure? ")) {
+        list = [];
+        setList(list);
+        getTotal(list);
+    }
+
 }
 
+//called when the page is loaded
 getTotal(list);
 setList(list);
