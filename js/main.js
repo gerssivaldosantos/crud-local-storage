@@ -1,8 +1,5 @@
 var list = [
-    { "description": "rice", "amount": "1", "value": "5.40" },
-    { "description": "beer", "amount": "12", "value": "1.99" },
-    { "description": "meat", "amount": "1", "value": "15.00" },
-    { "description": "chicken", "amount": "4", "value": "11.00" },
+
 ]
 
 function getTotal(list) {
@@ -68,6 +65,7 @@ function addData() {
         /* Refresh te table */
         setList(list);
         getTotal(list);
+        saveListStorage(list);
         /* Reseting the inputs */
         document.getElementById('desc').value = "";
         document.getElementById('amount').value = "";
@@ -107,6 +105,7 @@ function updateData() {
     resetForm();
     setList(list);
     getTotal(list);
+    saveListStorage(list);
 }
 
 function deleteData(id) {
@@ -114,6 +113,7 @@ function deleteData(id) {
         list.splice(id, 1);
         setList(list);
         getTotal(list);
+        saveListStorage(list)
     }
 }
 
@@ -126,6 +126,20 @@ function deleteAll() {
 
 }
 
+function saveListStorage(list) {
+    var jsonStr = JSON.stringify(list);
+    localStorage.setItem('list', jsonStr);
+}
+
+function loadListStorage() {
+    var jsonStr = localStorage.getItem('list');
+    if (jsonStr != null) {
+        list = JSON.parse(jsonStr);
+        setList(list);
+        getTotal(list);
+    }
+}
 //called when the page is loaded
+loadListStorage();
 getTotal(list);
 setList(list);
